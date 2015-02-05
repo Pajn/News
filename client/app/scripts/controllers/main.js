@@ -8,10 +8,9 @@
  * Controller of the newsApp
  */
 angular.module('newsApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+  .controller('MainCtrl', ['$scope', '$mdSidenav', function($scope, $mdSidenav){
+    $scope.toggleSidenav = function(menuId) {
+      $mdSidenav(menuId).toggle();
+    };
+
+  }]);
