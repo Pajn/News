@@ -1,9 +1,13 @@
 <div ng-controller="cardCtrl">
+    <div>
+        <form class="form-inline">
+            <input ng-model="filterQuery" type="text" placeholder="Sök" autofocus>
+        </form>
+    </div>
+	<input type="radio" ng-model="filterQuery" value="Ryssland">  Ryssland <br/>
+	<input type="radio" ng-model="filterQuery" ng-value="specialValue"> Green <br/>
+	<input type="radio" ng-model="filterQuery" value="blue"> Blue <br/>
 
-
-
-<card ng-repeat="item in articleList">
-
-
-</card>
+    <card ng-repeat="item in articleList | filter:filterQuery ">
+    </card>
 </div>
