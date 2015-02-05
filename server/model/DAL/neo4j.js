@@ -97,7 +97,8 @@ module.exports = {
   getArticles: function() {
     return this.query('Match (newspaper:Newspaper)<--(article:Article)-->(author:Author),' +
                             '(concept:Concept)<--(article)-->(scope:Scope) ' +
-                      'Return article, author, newspaper, collect(concept) as concepts, scope')
+                      'Return article, author, newspaper, collect(concept) as concepts, scope ' +
+                      'Order By article.rating DESC')
       .then(function(data) {
         return data.map(function(row) {
           row.concepts = row.concepts.map(function(concept) {
@@ -111,7 +112,7 @@ module.exports = {
     return this.query('Match (article)-[:Concept]->(concept:Concept)<-[:Concept]-(related:Article) ' +
                       'Where article.id = {id} ' +
                       'Return DISTINCT related, collect(concept) as concepts, count(concept) as score ' +
-                      'Order By score DESC', {id: id})
+                      'Order By score DESC, related.rating DESC', {id: id})
       .then(function(data) {
         return data.map(function(row) {
           row.concepts = row.concepts.map(function(concept) {
@@ -131,7 +132,8 @@ module.exports = {
     return this.query('Match (newspaper:Newspaper)<--(article:Article)-->(author:Author),' +
                             '(concept:Concept)<--(article)-->(scope:Scope) ' +
                       'Where author.id = {id}' +
-                      'Return article, author, newspaper, collect(concept) as concepts, scope',
+                      'Return article, author, newspaper, collect(concept) as concepts, scope ' +
+                      'Order By article.rating',
       {id: id})
       .then(function(data) {
         return data.map(function(row) {
@@ -142,4 +144,10 @@ module.exports = {
         });
       });
   },
+  rate: function(articleId, rating) {
+    return this.query('Match (article:Article) ' +
+                      'Where article.id = {id} ' +
+                      'Set article.rating = article.rating + {rating}',
+      {id: articleId, rating: rating});
+  }
 };

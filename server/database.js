@@ -5,7 +5,8 @@ var articles = [
     "url": "http://www.dn.se/nyheter/sverige/sa-opererar-ryska-nattroll-i-sverige/",
     "imageUrl": "http://d2.dn-static.se/UploadedImages/2015/2/5/7721d597-0584-4e11-b9cb-2c1a1bc509d4/original.jpg",
     "preamble": "Översättningsprogram, kommentarer på nyhetssajter och byte av identiteter. Så opererar sannolikt ryska nättroll i Sverige med syfte att sprida Putinvänliga uppgifter. ”Det pågår ett propagandakrig”, säger Ulrik Franke på FOI.",
-    "date": "2015-02-05T10:22+02:00"
+    "date": "2015-02-05T10:22+02:00",
+    "rating": 0
   },
   {
     "type": 'Article',
@@ -13,7 +14,8 @@ var articles = [
     "url": "http://www.dn.se/nyheter/varlden/pentagon-putin-har-asperger/",
     "imageUrl": "http://d1.dn-static.se/UploadedImages/2015/2/5/f0ace1c6-0b9c-4398-9381-3a4c03dcf9d6/original.jpg",
     "preamble": "Rysslands president Vladimir Putin har Aspergers syndrom slår en grupp fast i det amerikanska försvarshögkvarteret Pentagon. Diagnosen är ”autistisk störning som påverkar alla hans beslut”, enligt dokument som bland andra USA Today kommit över.",
-    "date": "2015-02-05T14:07+02:00"
+    "date": "2015-02-05T14:07+02:00",
+    "rating": 1
   },
   {
     "type": 'Article',
@@ -21,14 +23,16 @@ var articles = [
     "url": "http://www.dn.se/nyheter/sverige/sa-daligt-rustat-ar-sverige-mot-det-ryska-psykkriget/",
     "imageUrl": "http://d1.dn-static.se/UploadedImages/2015/2/5/364e607b-8c87-47ab-8c7f-d034d1d5fc44/original.jpg",
     "preamble": "Nättroll och mer pengar till statskontrollerade medier. Ryssland rustar sin psykologiska krigföring – men Sveriges beredskap är allt annat än god. ”Den största risken är att våra politiker fattar beslut på felaktiga grunder”, säger Lars Nicander på Försvarshögskolan.",
-    "date": "2015-02-05T17:57+02:00"
+    "date": "2015-02-05T17:57+02:00",
+    "rating": 0
   },
   {
     "type": 'Article',
     "title": "Forskare: E-cigaretter kan skada lungorna",
     "url": "http://www.dn.se/nyheter/vetenskap/forskare-e-cigaretter-kan-skada-lungorna/",
     "preamble": "Möss som utsätts för ånga från cigaretter löper större risk att drabbas av luftvägsinfektioner. Det säger en grupp forskare i USA, som studerat hur möss påverkas av e-cigaretter.",
-    "date": "2015-02-05T19:19+02:00"
+    "date": "2015-02-05T19:19+02:00",
+    "rating": 2
   },
   {
     "type": 'Article',
@@ -36,21 +40,24 @@ var articles = [
     "imageUrl": "http://gfx2.aftonbladet-cdn.se/image/20273571/485/normal/f2bb296c8b8fa/ystadskott.jpg",
     "url": "http://www.aftonbladet.se/nyheter/article20273128.ab",
     "preamble": "En man i 25-årsåldern har hittats död i en lägenhet i centrala Ystad. Polisen har spärrat av ett större område och tio polisbilar är på plats. – Vi misstänker mord, säger Calle Persson vid Skånepolisen.",
-    "date": "2015-02-05"
+    "date": "2015-02-05",
+    "rating": 0
   },
   {
     "type": 'Article',
     "title": "FN: IS använder barn som självmordsbombare",
     "url": "http://www.dn.se/nyheter/varlden/fn-is-anvander-barn-som-sjalvmordsbombare/",
     "preamble": "Terrorgruppen Islamiska staten använder barn som självmordsbombare, rövar bort unga och säljer dem som sexslavar. Det säger FN i en ny rapport.",
-    "date": "2015-02-05T15:40+02:00"
+    "date": "2015-02-05T15:40+02:00",
+    "rating": -1
   },
   {
     "type": 'Article',
     "title": "IS-terrorn blev FP-kris i Sverige",
     "imageUrl": "http://gfx2.aftonbladet-cdn.se/image/19587226/485/normal/cdcd0c94e17ac/(F)-24FOLKPARTIETS-NYA-TALESPERSONER_1.jpg",
     "url": "http://www.aftonbladet.se/ledare/ledarkronika/danielswedin/article20266562.ab",
-    "date": "2015-02-04"
+    "date": "2015-02-04",
+    "rating": 0
   },
   {
     "type": 'Article',
@@ -58,15 +65,17 @@ var articles = [
     "imageUrl": "http://d6jf7ok6u1qis.cloudfront.net/imengine/image.php?uuid=b4528a7b-ac4a-4350-b6c8-868f4dba9004&type=preview&source=false&function=thumbnail&width=2500&height=2000&q=72",
     "url": "http://www.barometern.se/kalmar/is-flagga-pa-bro-i-smedby/",
     "preamble": 'Flera läsare hörde på lördagsmorgonen av sig om en IS-flagga som någon har hängt upp på flera broar i Smedby. Polisen upprättade på lördagsförmiddagen en anmälan om förargelseväckande beteende och tog flaggan i beslag.',
-    "date": "2014-08-30"
+    "date": "2014-08-30",
+    "rating": 2
   },
   {
     "type": 'Article',
     "title": "Mordet på Emil, 6, på väg att lösas",
     "imageUrl": "http://gfx.aftonbladet-cdn.se/image/20266290/368/normal/e7b26f1d176ef/emil.jpg",
-    "url": "http://www.barometern.se/kalmar/is-flagga-pa-bro-i-smedby/",
+    "url": "http://www.aftonbladet.se/nyheter/article20266105.ab",
     "preamble": 'Den sexårige Emil Rittbo mördades av rånare på flykt. I över 20 år har mördarna gått fria. Nu är fallet på väg att klaras upp.',
-    "date": "2015-02-04"
+    "date": "2015-02-04",
+    "rating": -2
   }
 ];
 
