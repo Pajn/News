@@ -1,16 +1,10 @@
 <md-card>
-{{card}}
-{{card.title}}
-{{title}}
-  <h2>SD-politiker om gruppvåldtäkten: Sossekärrings högsta dröm</h2>
+
+<h2>{{item.article.title}}</h2>
   <p>
-    En främlingsfientlig sajt skrev om en gruppvåldtäkt i norska Bergen.
-
-    ”Varenda svensk sossekärrings högsta dröm”, kommenterade Sverigedemokraternas nyutnämnda nämndeman Leon Rhodin, 61.
-
-    – Vi måste utreda allt förtroendeskadligt, säger lagmannen Mari Hedenborg på Solna tingsrätt.
+    {{item.article.preamble}}
   </p>
-  <img src="http://d1.dn-static.se/UploadedImages/2015/2/5/48ac66a2-26d5-4652-8382-fb40e5bb16a8/original.jpg">
+  <div ng-if="item.article.imageUrl" class="image" style="background-image: url('{{item.article.imageUrl}}')"></div>
   <footer layout="row">
     <person></person>
     <div flex></div>
