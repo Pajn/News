@@ -9,10 +9,7 @@
 angular.module('newsApp')
   .directive('newsArticle', function () {
     return {
-      template: '<div></div>',
+      templateUrl: 'partials/new-article.html',
       restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        element.text('this is the newsArticle directive');
-      }
     };
   });
