@@ -43,15 +43,18 @@ a {
   color: rgba(0, 0, 0, 0.57);
 }
 
+md-card {
+  padding: 8px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  width: 30rem;
+}
+
 card {
-  md-card {
-    padding: 8px;
-    background-color: #ffffff;
-    border-radius: 2px;
-  }
+
 //  display: block;
 
-  width: 30rem;
+
 //  overflow: hidden;
 
 //  background-color: #ffffff;

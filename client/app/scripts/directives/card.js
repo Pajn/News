@@ -11,5 +11,9 @@ angular.module('newsApp')
     return {
       templateUrl: 'partials/card.html',
       restrict: 'E',
+      controller: function () {
+
+      },
+      controllerAs: 'cardCtrl'
     };
   });
