@@ -96,7 +96,17 @@ module.exports = {
   },
 
   getArticles: function() {
-    return this.query('Match (article:Article)-->(author:Author) Return article, author');
+    return this.query('Match (newspaper:Newspaper)<--(article:Article)-->(author:Author),' +
+                            '(concept:Concept)<--(article)-->(scope:Scope) ' +
+                      'Return article, author, newspaper, collect(concept) as concepts, scope')
+      .then(function(data) {
+        return data.map(function(row) {
+          row.concepts = row.concepts.map(function(concept) {
+            return concept._data.data;
+          });
+          return row;
+        });
+      });
   },
   getRelatedArticles: function(id) {
     return this.query('Match (article)-[:Concept]->(concept:Concept)<-[:Concept]-(related:Article) ' +
@@ -111,5 +121,11 @@ module.exports = {
           return row;
         });
       });
-  }
+  },
+  getConcepts: function() {
+    return this.query('Match (concept:Concept) Return concept');
+  },
+  getScopes: function() {
+    return this.query('Match (scope:Scope) Return scope');
+  },
 };

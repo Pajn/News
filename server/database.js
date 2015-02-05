@@ -152,8 +152,23 @@ var newspapers = [
   {
     "type": 'Newspaper',
     "name": "Barometern",
-    "logo": "url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%22756.504%22%20height%3D%22112.95%22%20viewBox%3D%220%200%20756.504%20112.95%22%3E%3Cdefs%3E%3Cpath%20id%3D%22a%22%20d%3D%22M-5.496-8.86h767v127h-767z%22%2F%3E%3C%2Fdefs%3E%3CclipPath%20id%3D%22b%22%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20overflow%3D%22visible%22%2F%3E%3C%2FclipPath%3E%3Cg%20clip-path%3D%22url(%23b)"
+    "logo": "data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20width%3D%22756.504%22%20height%3D%22112.95%22%20viewBox%3D%220%200%20756.504%20112.95%22%3E%3Cdefs%3E%3Cpath%20id%3D%22a%22%20d%3D%22M-5.496-8.86h767v127h-767z%22%2F%3E%3C%2Fdefs%3E%3CclipPath%20id%3D%22b%22%3E%3Cuse%20xlink%3Ahref%3D%22%23a%22%20overflow%3D%22visible%22%2F%3E%3C%2FclipPath%3E%3Cg%20clip-path%3D%22url(%23b"
   }
+];
+
+var scopes = [
+  {
+    type: 'Scope',
+    name: 'Lokalt',
+  },
+  {
+    type: 'Scope',
+    name: 'Sverige',
+  },
+  {
+    type: 'Scope',
+    name: 'Världen',
+  },
 ];
 
 var relations = [
@@ -322,6 +337,51 @@ var relations = [
     "end": newspapers[1],
     "label": "Newspaper"
   },
+  {
+    "start": articles[0],
+    "end": scopes[2],
+    "label": "Scope"
+  },
+  {
+    "start": articles[1],
+    "end": scopes[2],
+    "label": "Scope"
+  },
+  {
+    "start": articles[2],
+    "end": scopes[1],
+    "label": "Scope"
+  },
+  {
+    "start": articles[3],
+    "end": scopes[2],
+    "label": "Scope"
+  },
+  {
+    "start": articles[4],
+    "end": scopes[1],
+    "label": "Scope"
+  },
+  {
+    "start": articles[5],
+    "end": scopes[2],
+    "label": "Scope"
+  },
+  {
+    "start": articles[6],
+    "end": scopes[1],
+    "label": "Scope"
+  },
+  {
+    "start": articles[7],
+    "end": scopes[0],
+    "label": "Scope"
+  },
+  {
+    "start": articles[8],
+    "end": scopes[1],
+    "label": "Scope"
+  },
 ];
 
 module.exports = {
@@ -329,5 +389,6 @@ module.exports = {
   authors: authors,
   concepts: concepts,
   newspapers: newspapers,
+  scopes: scopes,
   relations: relations
 };

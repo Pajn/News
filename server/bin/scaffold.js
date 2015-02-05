@@ -7,6 +7,7 @@ var entities = data.articles;
 entities = entities.concat(data.authors);
 entities = entities.concat(data.concepts);
 entities = entities.concat(data.newspapers);
+entities = entities.concat(data.scopes);
 
 neo4j.query('Match (n) Optional Match (n)-[r]->() Delete n,r')
   .then(function() {
