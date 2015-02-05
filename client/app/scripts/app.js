@@ -17,8 +17,6 @@ angular
     'ngSanitize',
     'ngTouch',
     'ngMaterial',
-    'saploService'
-
   ])
   .config(function ($routeProvider, $mdThemingProvider) {
     $routeProvider

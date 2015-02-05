@@ -4,9 +4,10 @@
             <input ng-model="filterQuery" type="text" placeholder="Sök" autofocus>
         </form>
     </div>
-	<input type="radio" ng-model="filterQuery" value="Ryssland">  Ryssland <br/>
-	<input type="radio" ng-model="filterQuery" ng-value="specialValue"> Green <br/>
-	<input type="radio" ng-model="filterQuery" value="blue"> Blue <br/>
+    <label ng-repeat="item in scopes">
+        <input type="radio" ng-model="$parent.filterQuery" value="{{item.scope.name}}">  {{item.scope.name}} <br/>
+    </label>
+    <tagcloud concepts="concepts" clickfunc="clickfunc"></tagcloud>
 
     <card ng-repeat="item in articleList | filter:filterQuery ">
     </card>
