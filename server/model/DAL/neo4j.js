@@ -96,6 +96,6 @@ module.exports = {
   },
 
   getArticles: function() {
-    return this.query('Match (article:Article) Return article');
+    return this.query('Match (article:Article)-->(author:Author) Return article, author');
   }
 };

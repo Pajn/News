@@ -8,6 +8,7 @@ var app = express();
 app.get('/api/articles', function (req, res) {
   repo.getArticles()
     .then(function(articles) {
+      res.header("Access-Control-Allow-Origin", "*");
       res.send(articles);
     });
 });
