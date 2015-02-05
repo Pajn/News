@@ -44,12 +44,17 @@ a {
 }
 
 card {
-  display: block;
+  md-card {
+    padding: 8px;
+    background-color: #ffffff;
+    border-radius: 2px;
+  }
+//  display: block;
 
   width: 30rem;
-  overflow: hidden;
+//  overflow: hidden;
 
-  background-color: #ffffff;
+//  background-color: #ffffff;
 
   img {
     max-height: 10rem;
@@ -58,12 +63,19 @@ card {
   footer {
     padding: 8px;
     height: 72px;
+
+    .logo {
+      width: 8rem;
+      height: 100%;
+      background: no-repeat center;
+      background-size: contain;
+    }
   }
 }
 
 person {
   h4 {
     margin: 0;
-    padding: 0;
+    padding: 4px 0;
   }
 }
