@@ -16,7 +16,9 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngMaterial'
+    'ngMaterial',
+    'saploService'
+
   ])
   .config(function ($routeProvider, $mdThemingProvider) {
     $routeProvider
@@ -31,12 +33,15 @@ angular
       .when('/article', {
         templateUrl: 'views/news-article.html'
       })
+      .when('/saplo', {
+        templateUrl: 'views/main.html',
+        controller: 'SaploCtrl',
+      })
       .otherwise({
         redirectTo: '/'
       });
     $mdThemingProvider.theme('default')
     .primaryPalette('teal')
     .accentPalette('orange');
-
   });
 
