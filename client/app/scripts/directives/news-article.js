@@ -7,9 +7,17 @@
  * # newsArticle
  */
 angular.module('newsApp')
+  .controller('newsArticleCtrl', ['$scope', 'articleCategory', '$routeParams', function($scope, articleCategory, $routeParams) {
+
+    articleCategory.getRelatedArticles($routeParams.id)
+      .success(function (data) {
+
+        $scope.relatedArticles = data;
+      });
+  }])
   .directive('newsArticle', function () {
     return {
       templateUrl: 'partials/news-article.html',
-      restrict: 'E',
+      restrict: 'E'
     };
   });
