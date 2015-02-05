@@ -9,10 +9,7 @@
 angular.module('newsApp')
   .directive('card', function () {
     return {
-      template: '<div></div>',
+      templateUrl: 'partials/card.html',
       restrict: 'E',
-      link: function postLink(scope, element, attrs) {
-        element.text('this is the card directive');
-      }
     };
   });
