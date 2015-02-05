@@ -9,7 +9,7 @@
 angular.module('newsApp')
   .directive('newsArticle', function () {
     return {
-      templateUrl: 'partials/new-article.html',
+      templateUrl: 'partials/news-article.html',
       restrict: 'E',
     };
   });

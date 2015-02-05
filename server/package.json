@@ -11,5 +11,6 @@
   "dependencies": {
     "neo4j": "^1.1.1",
     "node-promise": "^0.5.11"
+    "express": "^4.11.2"
   }
 }
