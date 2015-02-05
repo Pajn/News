@@ -1,4 +1,5 @@
-var Promise = require('node-promise').Promise;
+var defer = require('node-promise').defer;
+var uuid = require('node-uuid');
 var db = new (require('neo4j').GraphDatabase)('http://localhost:7474');
 
 module.exports = {
@@ -10,53 +11,61 @@ module.exports = {
   create: function (entities, relations) {
     var match = 'Match ';
     var create = 'Create ';
-    var merge = '';
-    var placeholders = [];
+    var createUnique = 'Create Unique ';
+    var placeholders = {};
 
     entities.forEach(function (entity, index) {
       entity.index = index;
-      if (entity.old) {
+      if (entity.id) {
         match += '(n' + index + ':' + entity.type + ' {id: {n' + index + '}.id}), ';
       } else {
-        create += '(n' + index + ':' + entity.type + ' {{n' + index + '}}), ';
+        entity.id = uuid.v1();
+        create += '(n' + index + ':' + entity.type + ' {n' + index + '}), ';
       }
       placeholders['n' + index] = entity;
     });
 
     relations.forEach(function (relation) {
-      merge += 'Merge (n' + relation.start.index + ')-[:' + relation.label + ']->' +
-               '(n' + relation.end.index + ') ';
+      createUnique += '(n' + relation.start.index + ')-[:' + relation.label + ']->' +
+                      '(n' + relation.end.index + '), ';
     });
 
     entities.forEach(function (entity) {
-      delete entity.old;
       delete entity.index;
     });
 
     match = match.substr(0, match.length - 2);
     create = create.substr(0, create.length - 2);
+    createUnique = createUnique.substr(0, createUnique.length - 2);
 
     if (match.length < 6) {
-    match = '';
+      match = '';
     }
     if (create.length < 7) {
-    create = '';
+      create = '';
+    }
+    if (createUnique.length < 14) {
+      createUnique = '';
     }
 
-    console.log([match, create, merge].join(' '));
+    console.log([match, create, createUnique].join(' '));
 
-    var promise = new Promise();
+    var deferred = defer();
 
     if (!create && !merge) {
-      promise.resolve([]);
+      deferred.resolve([]);
+      return deferred.promise;
     }
 
-    db.query([match, create, merge].join(' '), placeholders, function (err, data) {
-      if (err) promise.reject(err);
-      promise.resolve(data);
+    db.query([match, create, createUnique].join(' '), placeholders, function (err, data) {
+      if (err) {
+        deferred.reject(err);
+      } else {
+        deferred.resolve(data);
+      }
     });
 
-    return promise;
+    return deferred.promise;
   },
    /**
    * @param {String} query Cypher query
