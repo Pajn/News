@@ -34,8 +34,8 @@ angular
         templateUrl: 'views/news-article.html'
       })
       .when('/saplo', {
-        controller: 'SaploCtrl',
         templateUrl: 'views/main.html',
+        controller: 'SaploCtrl',
       })
       .otherwise({
         redirectTo: '/'
@@ -43,6 +43,5 @@ angular
     $mdThemingProvider.theme('default')
     .primaryPalette('teal')
     .accentPalette('orange');
-
   });
 
