@@ -6,8 +6,10 @@ var application_root = __dirname,
 var app = express();
 
 app.get('/api/articles', function (req, res) {
-  var data = repo.getArticles();
-  res.send(data);
+  repo.getArticles()
+    .then(function(articles) {
+      res.send(articles);
+    });
 });
 
 // Launch server

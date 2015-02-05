@@ -73,20 +73,26 @@ module.exports = {
    * @returns {Promise<Array>}
    */
   query: function(query, parameters) {
-    new Promise(function(resolve) {
-      db.query(query, parameters, promise(resolve));
-    })
-    .then(function(result) {
-      result.map(function(row) {
-        Object.keys(row).forEach(function(key) {
-          // Suppress error if field is not a node value
-          try {
-            row[key] = row[key]._data.data;
-          } catch (_) {}
+    var deferred = defer();
+
+    db.query(query, parameters, function (err, data) {
+      if (err) {
+         deferred.reject(err);
+      } else {
+        data.map(function(row) {
+          Object.keys(row).forEach(function(key) {
+            // Suppress error if field is not a node value
+            try {
+              row[key] = row[key]._data.data;
+            } catch (_) {}
+          });
+          return row;
         });
-        return row;
-      });
+        deferred.resolve(data);
+      }
     });
+
+    return deferred.promise;
   },
 
   getArticles: function() {
