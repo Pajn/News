@@ -1,4 +1,4 @@
-var Promise = require('promise').Promise;
+var Promise = require('node-promise').Promise;
 var db = new (require('neo4j').GraphDatabase)('http://localhost:7474');
 
 module.exports = {
@@ -58,4 +58,29 @@ module.exports = {
 
     return promise;
   },
+   /**
+   * @param {String} query Cypher query
+   * @param {object} parameters Query parameters
+   * @returns {Promise<Array>}
+   */
+  query: function(query, parameters) {
+    new Promise(function(resolve) {
+      db.query(query, parameters, promise(resolve));
+    })
+    .then(function(result) {
+      result.map(function(row) {
+        Object.keys(row).forEach(function(key) {
+          // Suppress error if field is not a node value
+          try {
+            row[key] = row[key]._data.data;
+          } catch (_) {}
+        });
+        return row;
+      });
+    });
+  },
+
+  getArticles: function() {
+    return this.query('Match (article:Article) Return article');
+  }
 };
