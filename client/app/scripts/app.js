@@ -28,6 +28,10 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/author/:id', {
+        templateUrl: 'views/author-articles.html'
+        //controller: 'AuthorArticlesCtrl'
+      })
       .when('/article', {
         templateUrl: 'views/news-article.html'
       })
@@ -42,4 +46,5 @@ angular
     .primaryPalette('teal')
     .accentPalette('orange');
   });
+
 
