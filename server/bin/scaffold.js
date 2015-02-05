@@ -6,6 +6,7 @@ var neo4j = require('../model/DAL/neo4j.js');
 var entities = data.articles;
 entities = entities.concat(data.authors);
 entities = entities.concat(data.concepts);
+entities = entities.concat(data.newspapers);
 
 neo4j.query('Match (n) Optional Match (n)-[r]->() Delete n,r')
   .then(function() {

@@ -13,6 +13,13 @@ app.get('/api/articles', function (req, res) {
     });
 });
 
+app.get('/api/articles/:id', function (req, res) {
+  repo.getRelatedArticles(req.params.id)
+    .then(function(articles) {
+      res.send(articles);
+    });
+});
+
 // Launch server
 
 app.listen(3000);
