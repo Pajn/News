@@ -111,15 +111,20 @@ module.exports = {
   getRelatedArticles: function(id) {
     return this.query('Match (article)-[:Concept]->(concept:Concept)<-[:Concept]-(related:Article) ' +
                       'Where article.id = {id} ' +
-                      'Return DISTINCT related, collect(concept) as concepts, count(concept) as score ' +
+                      'Return DISTINCT related, article, collect(concept) as concepts, count(concept) as score ' +
                       'Order By score DESC, related.rating DESC', {id: id})
       .then(function(data) {
-        return data.map(function(row) {
-          row.concepts = row.concepts.map(function(concept) {
-            return concept._data.data;
-          });
-          return row;
-        });
+        return {
+          article: data[0].article,
+          relatedArticles: data.map(function(row) {
+            return {
+              article: row.related,
+              concepts: row.concepts = row.concepts.map(function(concept) {
+              return concept._data.data;
+            })
+            };
+          }),
+        };
       });
   },
   getConcepts: function() {
