@@ -51,7 +51,7 @@ md-card {
   // column-span: all;
 }
 
-div[ng-controller="cardCtrl"] {
+.cards {
   column-fill: auto;
   column-count: 3;
   column-gap: 15px;
