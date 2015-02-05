@@ -28,7 +28,7 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('article', {
+      .when('/article', {
         templateUrl: 'views/news-article.html'
       })
       .otherwise({
