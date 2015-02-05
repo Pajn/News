@@ -5,6 +5,14 @@ var application_root = __dirname,
 
 var app = express();
 
+app.get('/api/authors/:id', function (req, res) {
+  repo.getAuthorArticles(req.params.id)
+    .then(function(articles) {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.send(articles);
+    });
+});
+
 app.get('/api/articles', function (req, res) {
   repo.getArticles()
     .then(function(articles) {
