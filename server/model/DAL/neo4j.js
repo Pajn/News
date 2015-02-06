@@ -109,14 +109,17 @@ module.exports = {
       });
   },
   getRelatedArticles: function(id) {
-    return this.query('Match (article)-[:Concept]->(concept:Concept)<-[:Concept]-(related:Article) ' +
+    return this.query('Match (article)-[:Concept]->(concept:Concept)<-[:Concept]-(related:Article),' +
+                            '(newspaper:Newspaper)<--(article)-->(author:Author) ' +
                       'Where article.id = {id} ' +
-                      'Return DISTINCT related, article, collect(concept) as concepts, count(concept) as score ' +
+                      'Return DISTINCT related, article, collect(concept) as concepts, count(concept) as score, newspaper, author ' +
                       'Order By score DESC, related.rating DESC', {id: id})
       .then(function(data) {
         if (!data || !data.length) return null;
         return {
           article: data[0].article,
+          newspaper: data[0].newspaper,
+          author: data[0].author,
           relatedArticles: data.map(function(row) {
             return {
               article: row.related,
