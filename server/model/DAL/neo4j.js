@@ -114,6 +114,7 @@ module.exports = {
                       'Return DISTINCT related, article, collect(concept) as concepts, count(concept) as score ' +
                       'Order By score DESC, related.rating DESC', {id: id})
       .then(function(data) {
+        if (!data || !data.length) return null;
         return {
           article: data[0].article,
           relatedArticles: data.map(function(row) {
