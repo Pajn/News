@@ -13,7 +13,10 @@ angular.module('newsApp')
       .success(function (data) {
 
         $scope.relatedArticles = data;
+        $scope.article = data.article;
+        console.log(data);
       });
+
   }])
   .directive('newsArticle', function () {
     return {
