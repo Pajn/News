@@ -12,7 +12,7 @@ angular.module('newsApp')
     articleCategory.getRelatedArticles($routeParams.id)
       .success(function (data) {
 
-        $scope.relatedArticles = data;
+        $scope.articles = data;
         $scope.article = data.article;
         $scope.item = data;
         //$scope.author = data.author;
