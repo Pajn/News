@@ -1,57 +1,75 @@
 <!doctype html>
 <html class="no-js" ng-app="newsApp">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-  </head>
-  <body layout="column" ng-controller="MainCtrl">
-    <md-toolbar layout="row">
-      <button ng-click="toggleSidenav('left')" class="menuBtn">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.) styles/vendor.css -->
+        <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+        <!-- bower:css -->
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+    </head>
+    <body layout="column" ng-controller="MainCtrl">
+        <md-toolbar layout="row">
+        <button ng-click="toggleSidenav('left')" class="menuBtn">
         <span class="visuallyhidden">Menu</span>
-      </button>
-      <h1>NewsApp</h1>
-    </md-toolbar>
-    <div layout="row" flex>
-      <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
-        <a href="" ng-repeat="item in scopes" ng-click="selectfilter(item.scope.name)">  {{item.scope.name}}</a> <br/>
-        <tagcloud concepts="concepts" selectfilter="selectfilter"></tagcloud>
-      </md-sidenav>
-      <div layout="column" flex id="content">
-        <md-content layout="column" flex class="md-padding">
-          <div id="main-content" ng-view="">
-          </div>
-
-        </md-content>
-      </div>
-    </div>
-
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/es5-shim/es5-shim.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/json3/lib/json3.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-aria/angular-aria.js"></script>
-    <script src="bower_components/angular-material/angular-material.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
+        </button>
+        <h1>NewsApp</h1>
+        </md-toolbar>
+        <div layout="row" flex>
+            <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left">
+            <md-toolbar>
+            <div class="md-toolbar-tools">
+                <span>NewsApp meny</span>
+                <!-- fill up the space between left and right area -->
+                <span flex></span>
+            </div>
+            </md-toolbar>
+            <div class="my-menu-container">
+                <div class="wrapper">
+                    <dl>
+                        <dt><h3>Scopes</h3></dt>
+                        <dd ng-repeat="item in scopes">
+                        <a href="" ng-click="selectfilter(item.scope.name)">{{item.scope.name}}</a>
+                        </dd>
+                    </dl>
+                </div>
+                <div class="wrapper">
+                    <tagcloud concepts="concepts" selectfilter="selectfilter"></tagcloud>
+                </div>
+            </div>
+            </md-sidenav>
+            <div layout="column" flex id="content">
+                <md-content layout="column" flex class="md-padding">
+                <div id="main-content" ng-view="">
+                </div>
+                </md-content>
+            </div>
+        </div>
+        <!-- build:js(.) scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/es5-shim/es5-shim.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/json3/lib/json3.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-touch/angular-touch.js"></script>
+        <script src="bower_components/angular-aria/angular-aria.js"></script>
+        <script src="bower_components/angular-material/angular-material.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
@@ -64,7 +82,7 @@
         <script src="scripts/services/articles.js"></script>
         <script src="scripts/services/filterService.js"></script>
         <script src="scripts/directives/author-article.js"></script>
-       <script src="scripts/services/articlesByAuthor.js"></script>
+        <script src="scripts/services/articlesByAuthor.js"></script>
         <!-- endbuild -->
-</body>
+    </body>
 </html>

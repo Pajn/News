@@ -23,10 +23,6 @@ angular.module('newsApp')
 		$scope.concepts = response.data;
 	}); 
 
-	$scope.clickfunc = function (conceptFilter) {
-		$scope.conceptFilter = conceptFilter; 
-	}; 
-
     $scope.selectfilter = function(filter){
         console.log(filter); 
         $scope.filterQuery = filter; 
