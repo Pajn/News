@@ -120,7 +120,7 @@ var authors = [
   },
   {
     "type": 'Author',
-    "name": "Unknown",
+    "name": "Unknown Author",
   },
 ];
 
@@ -236,7 +236,7 @@ var newspapers = [
   },
   {
     "type": 'Newspaper',
-    "name": "Unknown",
+    "name": "Unknown Paper",
     "logo": "http://www.dyadmusic.co.uk/wp-content/uploads/2014/01/UnknownCopyrightLicence.png"
   }
 ];
