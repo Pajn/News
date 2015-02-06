@@ -16,7 +16,6 @@ angular.module('newsApp')
         $scope.article = data.article;
         $scope.newspaper = data.newspaper;
         $scope.author = data.author;
-        console.log(data);
       });
 
   }])

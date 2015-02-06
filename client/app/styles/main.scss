@@ -96,6 +96,7 @@ md-card {
 }
 
 .cards {
+  -moz-column-fill: none;
   column-fill: auto;
   column-count: 3;
   column-gap: 15px;
