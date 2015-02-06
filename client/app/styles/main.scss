@@ -2,6 +2,11 @@ h1 a {
   color: #FFF;
 }
 
+.single-layout {
+  background: #FFF;
+  margin-bottom: 1em;
+}
+
 .search-top {
   font-size: 1em;
   padding-top: 0.4em;
@@ -27,14 +32,17 @@ h1 a {
 }
 
 .wiki {
-  width: 22%;
-  display: inline-block;
-  float: right;
-    padding: 8px;
+  -moz-column-fill: none;
+  display: block;
+  padding: 8px;
   background-color: #ffffff;
   border-radius: 2px;
 }
 
+wiki {
+  display: block;
+  width: 100%;
+}
 
 md-content.md-default-theme {
   background-color: #F5F5F5;
@@ -93,12 +101,12 @@ md-card {
   column-fill: auto;
   column-count: 1;
   column-gap: 15px;
-  width:70%;
   display: inline-block;
   padding: 8px;
   background-color: #ffffff;
   border-radius: 2px;
   margin-bottom: 5em;
+  padding-right: 5em;
 }
 
 .content img{
