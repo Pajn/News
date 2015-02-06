@@ -14,6 +14,14 @@ neo4j.query('Match (n) Optional Match (n)-[r]->() Delete n,r')
     return neo4j.create(entities, data.relations);
   })
   .then(function() {
+    var d = data.getBarackFromGoogle();
+    return neo4j.create(d[0], d[1]);
+  })
+  .then(function() {
+    var d = data.getUsaFromGoogle();
+    return neo4j.create(d[0], d[1]);
+  })
+  .then(function() {
     console.log('done');
   });
 

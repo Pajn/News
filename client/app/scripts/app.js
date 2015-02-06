@@ -28,16 +28,17 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/article/:id', {
+        templateUrl: 'views/news-article.html',
+        controller: 'newsArticleCtrl'
+      })
       .when('/author/:id', {
         templateUrl: 'views/author-articles.html'
         //controller: 'AuthorArticlesCtrl'
       })
-      .when('/article', {
-        templateUrl: 'views/news-article.html'
-      })
       .when('/saplo', {
         templateUrl: 'views/main.html',
-        controller: 'SaploCtrl',
+        controller: 'SaploCtrl'
       })
       .otherwise({
         redirectTo: '/'
@@ -46,5 +47,4 @@ angular
     .primaryPalette('teal')
     .accentPalette('orange');
   });
-
 

@@ -1,13 +1,17 @@
-<md-card>
+<a href="http://localhost:9000/#/article/{{item.article.id}}">
+  <md-card>
+
 <h2>{{item.article.title}}</h2>
-<p>
-{{item.article.preamble}}
-</p>
-<div ng-if="item.article.imageUrl" class="image" style="background-image: url('{{item.article.imageUrl}}')"></div>
-<footer layout="row">
+  <p>
+    {{item.article.preamble}}
+  </p>
+
+  <div ng-if="item.article.imageUrl" class="image" style="background-image: url('{{item.article.imageUrl}}')"></div>
+  <footer layout="row">
     <person></person>
     <div flex></div>
-    <div class="logo" style="background-image: url('http://www.dn.se/Images/Logos/dnse-logo.png')">
+    <div class="logo" style="background-image: url('{{item.newspaper.logo}}')">
     </div>
-</footer>
+  </footer>
 </md-card>
+</a>
