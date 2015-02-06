@@ -1,9 +1,5 @@
+<input ng-model="filterQuery" class="search-top" type="text" placeholder="Sök" autofocus>
 <div ng-controller="cardCtrl" class="cards">
-
-
-
-<card ng-repeat="item in articleList">
-
-
-</card>
+    <card ng-repeat="item in articleList | filter:filterQuery ">
+    </card>
 </div>
