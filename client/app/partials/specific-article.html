@@ -10,9 +10,10 @@
     Integer dapibus nunc non turpis volutpat pulvinar. Etiam venenatis, mi quis lobortis varius, erat purus eleifend sem, quis commodo sem nisl sit amet augue. Maecenas vitae eros vehicula, porta nisi varius, pulvinar orci. Praesent eget dui vehicula, pellentesque orci vel, vulputate metus. Fusce semper dolor sollicitudin ex tempus auctor. Donec scelerisque, risus eu iaculis auctor, augue nulla lacinia metus, eget pulvinar risus magna et justo. Nullam laoreet diam at velit sollicitudin, sodales malesuada enim ultrices. Mauris ante enim, sodales vel neque sit amet, suscipit placerat massa. Sed gravida hendrerit lorem, at cursus nibh vestibulum eget. Aliquam nec mi malesuada, posuere quam nec, condimentum dolor. Praesent bibendum tincidunt turpis, non lobortis mauris euismod dictum. Nullam aliquet eu nisi ac consectetur. Donec elementum vitae augue et dapibus.</p>
 
 </div>
-  <div class="footer">
-  <h4>{{author.name}} </h4>
-  <h4> {{author.email}}</h4>
-  <img   class="logo" ng-src="{{newspaper.logo}}">
-  </div>
+  <footer layout="row">
+    <person></person>
+    <div flex></div>
+    <div class="logo" style="background-image: url('{{item.newspaper.logo}}')">
+    </div>
+  </footer>
 </div>
