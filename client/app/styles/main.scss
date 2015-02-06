@@ -162,6 +162,7 @@ person {
     border-top: 0.375em double #c6d0da;
     border-bottom: 0.125em solid #c6d0da;
     transition: border-top 0.2s;
+    transition: top 0.2s;
   }
   dl {
     margin: 0;
@@ -221,6 +222,7 @@ person {
       }
       .my-menu-arrow:before {
         border-top: 0 double #000;
+        top: 1.4em;
         border-bottom: 0.125em solid #c6d0da;
       }
     }
