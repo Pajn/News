@@ -20,6 +20,15 @@
   display: block;
 }
 
+.wiki {
+  width: 22%;
+  display: inline-block;
+  float: right;
+    padding: 8px;
+  background-color: #ffffff;
+  border-radius: 2px;
+}
+
 
 md-content.md-default-theme {
   background-color: #F5F5F5;
@@ -78,7 +87,12 @@ md-card {
   column-fill: auto;
   column-count: 1;
   column-gap: 15px;
-  max-width:66%;
+  width:70%;
+  display: inline-block;
+  padding: 8px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  margin-bottom: 5em;
 }
 
 .content img{
