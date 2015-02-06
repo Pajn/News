@@ -27,6 +27,9 @@ app.get('/api/articles/:id', function (req, res) {
   repo.getRelatedArticles(req.params.id)
     .then(function(articles) {
       res.header("Access-Control-Allow-Origin", "*");
+      if (!articles) {
+        res.status(404);
+      }
       res.send(articles);
     });
 });
@@ -48,6 +51,7 @@ app.get('/api/scopes', function (req, res) {
 });
 
 app.post('/api/articles/:id', function (req, res) {
+  res.header("Access-Control-Allow-Origin", "*");
   switch (req.body.rate) {
     case 'like':
       var rating = 1;
