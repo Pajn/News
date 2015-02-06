@@ -24,8 +24,6 @@ angular.module('newsApp')
 	}); 
 
     $scope.selectfilter = function(filter){
-        console.log(filter); 
         $scope.filterQuery = filter; 
     }
->>>>>>> Mer-Filter
 }]);
