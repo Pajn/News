@@ -2,6 +2,16 @@ var defer = require('node-promise').defer;
 var uuid = require('node-uuid');
 var db = new (require('neo4j').GraphDatabase)('http://localhost:7474');
 
+Array.prototype.containsObject = function(obj) {
+  var i = this.length;
+  while (i--) {
+    if (this[i].id === obj.id) {
+      return true;
+    }
+  }
+  return false;
+};
+
 module.exports = {
   /**
    * @param {Array.<Entity>} entities Entities to match or insert
@@ -109,32 +119,33 @@ module.exports = {
       });
   },
   getRelatedArticles: function(id) {
-    return this.query('Match (article)-[:Concept]->(concept:Concept)<-[:Concept]-(related:Article),' +
+    return this.query('Match (article)-->(concept:Concept)<--(related:Article),' +
                             '(newspaper:Newspaper)<--(article)-->(author:Author),' +
-                            '(relatedNewspaper:Newspaper)<--(related)-->(relatedAuthor:Author),' +
-                            '(article)-[:Concept]->(articleConcept:Concept) ' +
+                            '(relatedNewspaper:Newspaper)<--(related)-->(relatedAuthor:Author) ' +
                       'Where article.id = {id} ' +
-                      'Return DISTINCT related, article, collect(concept) as concepts, collect(articleConcept) as articleConcepts, count(concept) as score, newspaper, author, relatedNewspaper, relatedAuthor ' +
+                      'Return DISTINCT related, article, collect(concept) as concepts, count(concept) as score, newspaper, author, relatedNewspaper, relatedAuthor ' +
                       'Order By score DESC, related.rating DESC', {id: id})
       .then(function(data) {
         if (!data || !data.length) return null;
+        var articleConcepts = [];
         return {
           article: data[0].article,
           newspaper: data[0].newspaper,
           author: data[0].author,
-          concepts: data[0].articleConcepts.map(function(concept) {
-            return concept._data.data;
-          }),
           relatedArticles: data.map(function(row) {
             return {
               article: row.related,
               newspaper: row.relatedNewspaper,
               author: row.relatedAuthor,
               concepts: row.concepts = row.concepts.map(function(concept) {
+                if (!articleConcepts.containsObject(concept._data.data)) {
+                  articleConcepts.push(concept._data.data);
+                }
                 return concept._data.data;
               })
             };
           }),
+          concepts: articleConcepts,
         };
       });
   },
