@@ -53,7 +53,7 @@ app.get('/api/scopes', function (req, res) {
 
 app.get('/api/wikidata/:title', function (req, res) {
   var options = {
-    host : 'en.wikipedia.org',
+    host : 'sv.wikipedia.org',
     port : 80,
     path : '/w/api.php?format=json&action=parse&page=' + encodeURIComponent(req.params.title) +'&prop=text',
     method : 'GET'
