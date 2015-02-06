@@ -74,6 +74,27 @@ md-card {
   // column-span: all;
 }
 
+.article{
+  column-fill: auto;
+  column-count: 1;
+  column-gap: 15px;
+  max-width:66%;
+}
+
+.content img{
+  float:left;
+  max-width: 62%;
+  margin-right: 3%;
+}
+
+.footer{
+  display: inline-flex;
+}
+
+.footer img{
+  margin-left: 3%;
+}
+
 .cards {
   column-fill: auto;
   column-count: 3;
