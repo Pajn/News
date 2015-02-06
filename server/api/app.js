@@ -1,7 +1,8 @@
 var application_root = __dirname,
   express = require("express"),
   repo = require("../model/DAL/neo4j"),
-  bodyParser = require('body-parser');
+  bodyParser = require('body-parser'),
+  http = require("http");
 
 
 var app = express();
@@ -45,6 +46,33 @@ app.get('/api/scopes', function (req, res) {
       res.header("Access-Control-Allow-Origin", "*");
       res.send(scopes);
     });
+});
+
+app.get('/api/wikidata/:title', function (req, res) {
+  var options = {
+    host : 'en.wikipedia.org',
+    port : 80,
+    path : '/w/api.php?format=json&action=query&continue=&titles=' + encodeURIComponent(req.params.title) +'&prop=revisions&rvprop=content',
+    method : 'GET'
+  };
+
+  var request = http.request(options, function(response) {
+    var body = "";
+
+    response.on('data', function(data) {
+      body += data;
+    });
+
+    response.on('end', function() {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.send(JSON.parse(body));
+    });
+  });
+
+  request.on('error', function(e) {
+    console.log('Problem with request: ' + e.message);
+  });
+  request.end();
 });
 
 app.post('/api/articles/:id', function (req, res) {
