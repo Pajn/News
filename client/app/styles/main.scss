@@ -146,6 +146,23 @@ person {
   h3{
     margin: 0;
   }
+  .my-menu-arrow {
+    position: relative;
+    padding-left: 1.25em;
+    float: right;
+
+  }
+  .my-menu-arrow:before {
+    content: "";
+    position: absolute;
+    top: 1.2em;
+    left:-40px;
+    width: 1em;
+    height: 0.125em;
+    border-top: 0.375em double #c6d0da;
+    border-bottom: 0.125em solid #c6d0da;
+    transition: border-top 0.2s;
+  }
   dl {
     margin: 0;
     padding: 0;
@@ -202,24 +219,13 @@ person {
       h3{        
         padding-left: 30px;
       }
+      .my-menu-arrow:before {
+        border-top: 0 double #000;
+        border-bottom: 0.125em solid #c6d0da;
+      }
     }
   }
 }
 
-.my-menu-arrow {
-  position: relative;
-  padding-left: 1.25em;
-  text-align: right;
-}
-.my-menu-arrow:before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.25em;
-  width: 1em;
-  height: 0.15em;
-  background: black;
-  box-shadow: 
-    0 0.25em 0 0 black,
-    0 0.5em 0 0 black;
-}
+
+  
