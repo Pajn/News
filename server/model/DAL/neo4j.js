@@ -111,9 +111,10 @@ module.exports = {
   getRelatedArticles: function(id) {
     return this.query('Match (article)-[:Concept]->(concept:Concept)<-[:Concept]-(related:Article),' +
                             '(newspaper:Newspaper)<--(article)-->(author:Author),' +
-                            '(relatedNewspaper:Newspaper)<--(related)-->(relatedAuthor:Author) ' +
+                            '(relatedNewspaper:Newspaper)<--(related)-->(relatedAuthor:Author),' +
+                            '(article)-[:Concept]->(articleConcept:Concept) ' +
                       'Where article.id = {id} ' +
-                      'Return DISTINCT related, article, collect(concept) as concepts, count(concept) as score, newspaper, author, relatedNewspaper, relatedAuthor ' +
+                      'Return DISTINCT related, article, collect(concept) as concepts, collect(articleConcept) as articleConcepts, count(concept) as score, newspaper, author, relatedNewspaper, relatedAuthor ' +
                       'Order By score DESC, related.rating DESC', {id: id})
       .then(function(data) {
         if (!data || !data.length) return null;
@@ -121,14 +122,17 @@ module.exports = {
           article: data[0].article,
           newspaper: data[0].newspaper,
           author: data[0].author,
+          concepts: data[0].articleConcepts.map(function(concept) {
+            return concept._data.data;
+          }),
           relatedArticles: data.map(function(row) {
             return {
               article: row.related,
               newspaper: row.relatedNewspaper,
               author: row.relatedAuthor,
               concepts: row.concepts = row.concepts.map(function(concept) {
-              return concept._data.data;
-            })
+                return concept._data.data;
+              })
             };
           }),
         };
