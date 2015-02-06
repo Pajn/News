@@ -12,7 +12,7 @@ angular.module('newsApp')
 		restrict: 'E',
 	  	scope: {
 	  		concepts: '=concepts',
-	  		clickfunc : '=clickfunc'
+	  		selectfilter : '=selectfilter'
 	  	},
 
 	  	templateUrl: 'partials/tag-cloud.html',

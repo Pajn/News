@@ -17,15 +17,18 @@ angular.module('newsApp')
     $scope.concepts = [{}]; 
 
     filterService.getScopes().then(function(response){
-    	$scope.scopes = response.data; 
-    	console.log(response.data); 
+    	$scope.scopes = response.data;
 	}); 
 	filterService.getConcepts().then(function(response){
-		$scope.concepts = response.data; 
-    	console.log(response.data); 
+		$scope.concepts = response.data;
 	}); 
 
 	$scope.clickfunc = function (conceptFilter) {
 		$scope.conceptFilter = conceptFilter; 
 	}; 
+
+    $scope.selectfilter = function(filter){
+        console.log(filter); 
+        $scope.filterQuery = filter; 
+    }
 }]);
