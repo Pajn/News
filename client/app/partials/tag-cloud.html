@@ -1,3 +1,6 @@
-<div class="tag-cloud">
-	<a href="" ng-repeat="item in concepts" ng-click="clickfunc(item.concept.name)"> {{item.concept.name}} </a>
-</div>
+<dl class="tag-cloud">
+    <dt><h3>Taggar<span class="my-menu-arrow"></span></h3></dt>
+    <dd ng-repeat="item in concepts">
+        <a href="" ng-click="selectfilter(item.concept.name)">{{item.concept.name}}</a>
+    </dd>
+</dl>
