@@ -14,7 +14,8 @@ angular.module('newsApp')
 
         $scope.relatedArticles = data;
         $scope.article = data.article;
-        console.log(data);
+        $scope.item = data;
+        //$scope.author = data.author;
       });
 
   }])

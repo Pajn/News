@@ -74,12 +74,54 @@ md-card {
   // column-span: all;
 }
 
+.article{
+  column-fill: auto;
+  column-count: 1;
+  column-gap: 15px;
+  max-width:66%;
+}
+
+.content img{
+  float:left;
+  max-width: 62%;
+  margin-right: 3%;
+}
+
+.footer{
+  display: inline-flex;
+}
+
+.footer img{
+  float: right;
+}
+a{
+  text-decoration: none;
+}
 .cards {
+  -moz-column-fill: none;
   column-fill: auto;
   column-count: 3;
   column-gap: 15px;
+
 }
 
+footer {
+  padding: 8px;
+  height: 72px;
+}
+
+
+.footerSection{
+  border-bottom: dashed 2px #808080;
+  margin-bottom: 3%;
+}
+
+.logo {
+  width: 8rem;
+  height: 100%;
+  background: no-repeat center;
+  background-size: contain;
+}
 card {
   width: 100%;
   display: inline-block;
@@ -108,17 +150,7 @@ card {
     overflow: hidden;
   }
 
-  footer {
-    padding: 8px;
-    height: 72px;
 
-    .logo {
-      width: 8rem;
-      height: 100%;
-      background: no-repeat center;
-      background-size: contain;
-    }
-  }
 }
 
 person {
