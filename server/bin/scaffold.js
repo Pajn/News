@@ -22,6 +22,10 @@ neo4j.query('Match (n) Optional Match (n)-[r]->() Delete n,r')
     return neo4j.create(d[0], d[1]);
   })
   .then(function() {
+    var d = data.getSportFromGoogle();
+    return neo4j.create(d[0], d[1]);
+  })
+  .then(function() {
     console.log('done');
   });
 
