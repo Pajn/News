@@ -130,13 +130,19 @@ person {
 
 
 @media (max-width: 800px) {
-  div[ng-controller="cardCtrl"] {
+  .cards {
     column-count: 2;
+  }
+  .search-top {
+    width: 80%;
   }
 }
 
 @media (max-width: 480px) {
-  div[ng-controller="cardCtrl"] {
+  .cards {
     column-count: 1;
+  }
+  .search-top {
+    width: 100%;
   }
 }
